@@ -1,3 +1,4 @@
+// Login.js
 import React, { useState } from 'react';
 import imagem from "./imagens/apartamento2.jpeg";
 import card from "./imagens/house.svg";
@@ -15,10 +16,13 @@ const boxstyle = {
   bgcolor: "background.paper",
   boxShadow: 24,
 };
-const center = {
-  position: "relative",
-  top: "50%",
-  left: "37%",
+
+const iconTextStyle = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  textAlign: "center",
 };
 
 export default function Login() {
@@ -63,6 +67,7 @@ export default function Login() {
             </Grid>
             <Grid item xs={12} sm={12} lg={6}>
               <Box
+                className="center-content"
                 style={{
                   backgroundSize: "cover",
                   height: "80vh",
@@ -72,46 +77,46 @@ export default function Login() {
               >
                 <Container>
                   <Box height={35} />
-                  <Box sx={center}>
+                  <Box sx={iconTextStyle}> 
                     <Avatar sx={{ ml: "35px", mb: "4px", bg: "#3b33d5" }} />
                     <Typography component="h1" variant='h4'>
-                     Login
-                    </Typography>
-                    <TextField
-                      label="Nome"
-                      variant="outlined"
-                      margin="normal"
-                      fullWidth
-                      name="nome"
-                      value={formData.nome}
-                      onChange={handleChange}
-                      sx={{  width:"350px", height: "40px", marginBottom: "10px" }}
-                    />
-                    <TextField
-                      label="Senha"
-                      variant="outlined"
-                      margin="normal"
-                      fullWidth
-                      type="password"
-                      name="senha"
-                      value={formData.senha}
-                      onChange={handleChange}
-                      sx={{ width:"350px" , height: "40px", marginBottom: "10px" }}
-                    />
-                    <div className="form-group">
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        onClick={handleLogin}
-                        sx={buttonStyle}
-                      >
-                        Login
-                      </Button>
-                    </div>
-                    <Typography>
-                      Não tem uma conta? <Link to="cadastro">Cadastre-se</Link>
+                      Login
                     </Typography>
                   </Box>
+                  <TextField
+                    label="Nome"
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                    name="nome"
+                    value={formData.nome}
+                    onChange={handleChange}
+                    sx={{  width:"350px", height: "40px", marginBottom: "10px" }}
+                  />
+                  <TextField
+                    label="Senha"
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                    type="password"
+                    name="senha"
+                    value={formData.senha}
+                    onChange={handleChange}
+                    sx={{ width:"350px" , height: "40px", marginBottom: "10px" }}
+                  />
+                  <div className="form-group">
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={handleLogin}
+                      sx={buttonStyle}
+                    >
+                      Login
+                    </Button>
+                  </div>
+                  <Typography>
+                    Não tem uma conta? <Link to="/cadastro">Cadastre-se</Link>
+                  </Typography>
                 </Container>
               </Box>
             </Grid>

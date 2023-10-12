@@ -3,7 +3,7 @@ import imagem from "./imagens/apartamento2.jpeg";
 import card from "./imagens/house.svg";
 import './style.css'
 import { Box, Container, Grid, Typography, Avatar, TextField, Button } from '@mui/material';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 
 const boxstyle = {
   position: "absolute",
@@ -15,13 +15,16 @@ const boxstyle = {
   bgcolor: "background.paper",
   boxShadow: 24,
 };
-const center = {
-  position: "relative",
-  top: "50%",
-  left: "37%",
+
+const iconTextStyle = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  textAlign: "center",
 };
 
-export default function Register() {
+export default function Cadastro() {
   const [formData, setFormData] = useState({
     nome: '',
     senha: '',
@@ -31,9 +34,6 @@ export default function Register() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-  };
-  const handleLogin = (e) => {
-    window.location.href = '/login';
   };
   const handleRegister = () => {
     window.location.href = '/homepage';
@@ -66,6 +66,7 @@ export default function Register() {
             </Grid>
             <Grid item xs={12} sm={12} lg={6}>
               <Box
+                className="center-content"
                 style={{
                   backgroundSize: "cover",
                   height: "80vh",
@@ -75,57 +76,57 @@ export default function Register() {
               >
                 <Container>
                   <Box height={35} />
-                  <Box sx={center}>
+                  <Box sx={iconTextStyle}> 
                     <Avatar sx={{ ml: "35px", mb: "4px", bg: "#3b33d5" }} />
                     <Typography component="h1" variant='h4'>
-                     Login
-                    </Typography>
-                    <TextField
-                      label="Nome"
-                      variant="outlined"
-                      margin="normal"
-                      fullWidth
-                      name="nome"
-                      value={formData.nome}
-                      onChange={handleChange}
-                      sx={{  width:"350px", height: "40px", marginBottom: "10px" }}
-                    />
-                    <TextField
-                      label="Senha"
-                      variant="outlined"
-                      margin="normal"
-                      fullWidth
-                      type="password"
-                      name="senha"
-                      value={formData.senha}
-                      onChange={handleChange}
-                      sx={{ width:"350px" , height: "40px", marginBottom: "10px" }}
-                    />
-                    <TextField
-                      label="Confirmar Senha"
-                      variant="outlined"
-                      margin="normal"
-                      fullWidth
-                      type="password"
-                      name="confirmarSenha"
-                      value={formData.confirmarSenha}
-                      onChange={handleChange}
-                      sx={{width:"350px" , height:"40px",marginBottom:"10px"}}
-                    />
-                    <div className="form-group">
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        onClick={handleRegister}
-                        sx={buttonStyle}
-                      >
-                        Cadastre-se
-                      </Button>
-                    </div>
-                    <Typography>
-                      Já tem uma conta? <Link to="./login">Faça login</Link>
+                      Cadastro
                     </Typography>
                   </Box>
+                  <TextField
+                    label="Nome"
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                    name="nome"
+                    value={formData.nome}
+                    onChange={handleChange}
+                    sx={{  width:"350px", height: "40px", marginBottom: "10px" }}
+                  />
+                  <TextField
+                    label="Senha"
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                    type="password"
+                    name="senha"
+                    value={formData.senha}
+                    onChange={handleChange}
+                    sx={{ width:"350px" , height: "40px", marginBottom: "10px" }}
+                  />
+                  <TextField
+                    label="Confirmar Senha"
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                    type="password"
+                    name="confirmarSenha"
+                    value={formData.confirmarSenha}
+                    onChange={handleChange}
+                    sx={{width:"350px" , height:"40px",marginBottom:"10px"}}
+                  />
+                  <div className="form-group">
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={handleRegister}
+                      sx={buttonStyle}
+                    >
+                      Cadastre-se
+                    </Button>
+                  </div>
+                  <Typography>
+                    Já tem uma conta? <Link to="./login">Faça login</Link>
+                  </Typography>
                 </Container>
               </Box>
             </Grid>
@@ -135,4 +136,3 @@ export default function Register() {
     </>
   )
 }
-
